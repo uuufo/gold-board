@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html charset=UTF-8"/>
+    <meta http-equiv="refresh" content="43200 url=http://localhost:8080"/>
+    <title>Current Payout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Gold Board">
+    <meta name="author" content="Jared Larsen">
+    <link href="/webjars/bootstrap/5.0.0-beta3/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+
+<body>
+<table class="table table-success table-striped">
+    <tr>
+        <th></th>
+        <th>Karat</th>
+        <th>DWT</th>
+        <th>Gram</th>
+        <th>Ounce</th>
+    </tr>
+    <tr>
+        <th>Gold</th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <th></th>
+        <td>10k</td>
+        <td id="10kd" style="width:20%" th:text="${gold.getDwt(10)}"></td>
+        <td id="10kg" style="width:20%" th:text="${gold.getGram(10)}"></td>
+        <td id="10ko" style="width:20%" th:text="${gold.getOunce(10)}"></td>
+    </tr>
+    <tr>
+        <th></th>
+        <td>14k</td>
+        <td id="14kd" th:text="${gold.getDwt(14)}"></td>
+        <td id="14kg" th:text="${gold.getGram(14)}"></td>
+        <td id="14ko" th:text="${gold.getOunce(14)}"></td>
+    </tr>
+    <tr>
+        <th class="alt" style="width:20%"> </th>
+        <td>16k</td>
+        <td id="16kd" th:text="${gold.getDwt(16)}"></td>
+        <td id="16kg" th:text="${gold.getGram(16)}"></td>
+        <td id="16ko" th:text="${gold.getOunce(16)}"></td>
+    </tr>
+    <tr>
+        <th class="alt"> </th>
+        <td>18k</td>
+        <td id="18kd" th:text="${gold.getDwt(18)}"></td>
+        <td id="18kg" th:text="${gold.getGram(18)}"></td>
+        <td id="18ko" th:text="${gold.getOunce(18)}"></td>
+    </tr>
+    <tr>
+        <th></th>
+        <td>21k</td>
+        <td id="21kd" th:text="${gold.getDwt(21)}"></td>
+        <td id="21kg" th:text="${gold.getGram(21)}"></td>
+        <td id="21ko" th:text="${gold.getOunce(21)}"></td>
+    </tr>
+    <tr>
+        <th></th>
+        <td>22k</td>
+        <td id="22kd" th:text="${gold.getDwt(22)}"></td>
+        <td id="22kg" th:text="${gold.getGram(22)}"></td>
+        <td id="22ko" th:text="${gold.getOunce(22)}"></td>
+    </tr>
+    <tr>
+        <th></th>
+        <td>24k</td>
+        <td id="24kd" th:text="${gold.getDwt(24)}"></td>
+        <td id="24kg" th:text="${gold.getGram(24)}"></td>
+        <td id="24ko" th:text="${gold.getOunce(24)}"></td>
+    </tr>
+    <tr>
+        <th>Platinum</th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <th></th>
+        <td>.900</td>
+        <td id="p900d" th:text="${platinum.getDwt(900)}"></td>
+        <td id="p900g" th:text="${platinum.getGram(900)}"></td>
+        <td id="p900o" th:text="${platinum.getOunce(900)}"></td>
+    </tr>
+    <tr>
+        <th></th>
+        <td>.950</td>
+        <td id="p950d" th:text="${platinum.getDwt(950)}"></td>
+        <td id="p950g" th:text="${platinum.getGram(950)}"></td>
+        <td id="p950o" th:text="${platinum.getOunce(950)}"></td>
+    </tr>
+    <tr>
+        <th></th>
+        <td>.999</td>
+        <td id="p999d" th:text="${platinum.getDwt(999)}"></td>
+        <td id="p999g" th:text="${platinum.getGram(999)}"></td>
+        <td id="p999o" th:text="${platinum.getOunce(999)}"></td>
+    </tr>
+    <tr>
+        <th>Silver</th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <th></th>
+        <td width="500">.925 Sterling</td>
+        <td id="s925d" th:text="${silver.getDwt(925)}"></td>
+        <td id="s925g" th:text="${silver.getGram(925)}"></td>
+        <td id="s925o" th:text="${silver.getOunce(925)}"></td>
+    </tr>
+    <tr>
+        <th></th>
+        <td>.999 Fine</td>
+        <td id="s999d" th:text="${silver.getDwt(999)}"></td>
+        <td id="s999g" th:text="${silver.getGram(999)}"></td>
+        <td id="s999o" th:text="${silver.getOunce(999)}"></td>
+    </tr>
+</table>
+</body>
+</html>
