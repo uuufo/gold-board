@@ -1,6 +1,7 @@
 package dev.jlarsen.goldboard;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
@@ -19,14 +20,19 @@ public class GoldBoardService {
     @Autowired
     RestTemplate restTemplate;
 
+    @Value("${status.url}")
+    private String statusUrl;
+
+    @Value("${properties.file}")
+    private String propertiesFile;
+
     public boolean checkApiStatus(CurrentProperties properties) {
-        String apiUrl = "https://www.goldapi.io/api/status";
         HttpHeaders headers = new HttpHeaders();
         headers.add("x-access-token", properties.getApiKey());
         HttpEntity<String> httpEntity = new HttpEntity<>(headers);
         try {
             ResponseEntity<ApiStatus> response = restTemplate.exchange
-                    (apiUrl, HttpMethod.GET, httpEntity, ApiStatus.class);
+                    (statusUrl, HttpMethod.GET, httpEntity, ApiStatus.class);
             if (response.getBody() != null) {
                 return true;
             }
@@ -39,7 +45,7 @@ public class GoldBoardService {
 
     public CurrentProperties readPropertiesFile() {
         CurrentProperties currentProperties = null;
-        try (InputStream input = new FileInputStream("src/main/resources/gold-config")) {
+        try (InputStream input = new FileInputStream(propertiesFile)) {
             Properties properties = new Properties();
             properties.load(input);
             String apiKey = properties.getProperty("api.key");
