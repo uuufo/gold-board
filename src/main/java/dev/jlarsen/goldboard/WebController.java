@@ -26,7 +26,6 @@ public class WebController {
             model.addAttribute("silver", goldBoardService.getBackupPrice(properties, Metal.SILVER));
             model.addAttribute("platinum", goldBoardService.getBackupPrice(properties, Metal.PLATINUM));
         }
-
         return "index";
     }
 }

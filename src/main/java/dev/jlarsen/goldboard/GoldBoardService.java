@@ -7,11 +7,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.time.Instant;
 import java.util.Properties;
 
 @Service
@@ -25,6 +24,9 @@ public class GoldBoardService {
 
     @Value("${properties.file}")
     private String propertiesFile;
+
+    @Value("${backup.file}")
+    private String backupFile;
 
     public boolean checkApiStatus(CurrentProperties properties) {
         HttpHeaders headers = new HttpHeaders();
@@ -74,15 +76,29 @@ public class GoldBoardService {
         }
         if (response != null && response.getBody() != null) {
             BigDecimal currentPrice = response.getBody().getPrice();
+            saveBackupPrice(currentPrice, metal);
             return adjustPrice(currentPrice, properties, metal);
         } else {
             return getBackupPrice(properties, metal);
         }
     }
 
+    public void saveBackupPrice(BigDecimal currentPrice, Metal metal) {
+        try (OutputStream output = new FileOutputStream(backupFile)) {
+            Properties prices = new Properties();
+            prices.put(metal.name(), currentPrice.toString());
+            prices.store(output, "Backup Prices");
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public MetalPrice getBackupPrice(CurrentProperties properties, Metal metal) {
         BigDecimal price = null;
-        try (InputStream input = new FileInputStream("./gold-prices-backup")) {
+        try (InputStream input = new FileInputStream(backupFile)) {
             Properties prices = new Properties();
             prices.load(input);
             price = new BigDecimal(prices.getProperty(metal.name()));
@@ -101,6 +117,5 @@ public class GoldBoardService {
     public MetalPrice adjustPrice(BigDecimal currentPrice, CurrentProperties properties, Metal metal) {
         return new MetalPrice(currentPrice.multiply(new BigDecimal(properties.getPayRate(metal))
                 .setScale(4, RoundingMode.HALF_UP)));
-//        return new MetalPrice((currentPrice));
     }
 }

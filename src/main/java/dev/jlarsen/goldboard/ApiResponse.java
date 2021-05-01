@@ -23,5 +23,4 @@ public class ApiResponse {
     private BigDecimal chp;
     private BigDecimal ask;
     private BigDecimal bid;
-
 }
