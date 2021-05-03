@@ -29,6 +29,8 @@ public class GoldBoardService {
     @Value("${backup.file}")
     private String backupFile;
 
+    private final String workingDir = System.getProperty("user.dir");
+
     private static final Logger logger = LoggerFactory.getLogger(GoldBoardService.class);
 
     public boolean checkApiStatus(CurrentProperties properties) {
@@ -57,7 +59,7 @@ public class GoldBoardService {
     public CurrentProperties readPropertiesFile() {
         CurrentProperties currentProperties = null;
         logger.debug("Attempting to read properties file..");
-        try (InputStream input = new FileInputStream(propertiesFile)) {
+        try (InputStream input = new FileInputStream(workingDir + propertiesFile)) {
             Properties properties = new Properties();
             properties.load(input);
             String apiKey = properties.getProperty("api.key");
@@ -104,7 +106,7 @@ public class GoldBoardService {
         logger.debug("Writing " + metal.name() + " price to backup file.");
         Properties prices = new Properties();
         try {
-            prices.load(new FileInputStream(backupFile));
+            prices.load(new FileInputStream(workingDir + backupFile));
         } catch (FileNotFoundException ex) {
             logger.error("Backup file: " + backupFile + " doesn't exist, will create new file.");
             logger.error(ex.getMessage(), ex);
@@ -112,7 +114,7 @@ public class GoldBoardService {
             logger.error("Error reading backup file: " + backupFile);
             logger.error(ex.getMessage(), ex);
         }
-        try (OutputStream output = new FileOutputStream(backupFile)) {
+        try (OutputStream output = new FileOutputStream(workingDir + backupFile)) {
             prices.put(metal.name(), currentPrice.toString());
             prices.store(output, "Backup Prices");
         } catch (IOException ex) {
@@ -124,7 +126,7 @@ public class GoldBoardService {
     public MetalPrice getBackupPrice(CurrentProperties properties, Metal metal) {
         logger.debug("Getting " + metal.name() + " price from backup file.");
         BigDecimal price = null;
-        try (InputStream input = new FileInputStream(backupFile)) {
+        try (InputStream input = new FileInputStream(workingDir + backupFile)) {
             Properties prices = new Properties();
             prices.load(input);
             price = new BigDecimal(prices.getProperty(metal.name()));

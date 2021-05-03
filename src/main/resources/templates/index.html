@@ -8,11 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Gold Board">
     <meta name="author" content="Jared Larsen">
-    <link href="/webjars/bootstrap/5.0.0-beta3/css/bootstrap.min.css" rel="stylesheet"/>
+<!--    <link href="/webjars/bootstrap/5.0.0-beta3/css/bootstrap.min.css" rel="stylesheet"/>-->
+<!--    <link href="/gold-board/static/bootstrap.css" rel="stylesheet"/>-->
+<!--    <link href="/gold-board/static/table.css" rel="stylesheet"/>-->
+    <link href="table.css" rel="stylesheet"/>
 </head>
 
 <body>
-<table class="table table-success table-striped align-center">
+<table class="table table-bordered">
+    <thead>
     <tr >
         <th></th>
         <th>Karat</th>
@@ -20,6 +24,7 @@
         <th>Gram</th>
         <th>Ounce</th>
     </tr>
+    </thead>
     <tr>
         <th >Gold</th>
         <td></td>
@@ -42,14 +47,14 @@
         <td id="14ko" th:text="${gold.getOunce(14)}"></td>
     </tr>
     <tr>
-        <th > </th>
+        <th class="alt" style="width:20%">Today&#39;s</th>
         <td>16k</td>
         <td id="16kd" th:text="${gold.getDwt(16)}"></td>
         <td id="16kg" th:text="${gold.getGram(16)}"></td>
         <td id="16ko" th:text="${gold.getOunce(16)}"></td>
     </tr>
     <tr>
-        <th > </th>
+        <th class="alt">Loan Estimate</th>
         <td>18k</td>
         <td id="18kd" th:text="${gold.getDwt(18)}"></td>
         <td id="18kg" th:text="${gold.getGram(18)}"></td>
