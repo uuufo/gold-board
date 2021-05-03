@@ -1,0 +1,218 @@
+2021-05-02 17:53:45.706  INFO 93058 --- [main] d.j.goldboard.GoldBoardApplication       : Starting GoldBoardApplication using Java 1.8.0_251 on Jareds-Desk-tMBP.local with PID 93058 (/Users/jared/Code/gold-board/target/classes started by jared in /Users/jared/Code/gold-board)
+2021-05-02 17:53:45.710 DEBUG 93058 --- [main] d.j.goldboard.GoldBoardApplication       : Running with Spring Boot v2.4.4, Spring v5.3.5
+2021-05-02 17:53:45.710  INFO 93058 --- [main] d.j.goldboard.GoldBoardApplication       : No active profile set, falling back to default profiles: default
+2021-05-02 17:53:47.023  INFO 93058 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-05-02 17:53:47.041  INFO 93058 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-05-02 17:53:47.041  INFO 93058 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-05-02 17:53:47.142  INFO 93058 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-05-02 17:53:47.143  INFO 93058 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1352 ms
+2021-05-02 17:53:47.430  INFO 93058 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-02 17:53:47.556  INFO 93058 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-05-02 17:53:47.758  INFO 93058 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-02 17:53:47.780  INFO 93058 --- [main] d.j.goldboard.GoldBoardApplication       : Started GoldBoardApplication in 2.654 seconds (JVM running for 3.136)
+2021-05-02 17:53:56.531  INFO 93058 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-02 17:53:56.531  INFO 93058 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-05-02 17:53:56.532  INFO 93058 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-05-02 17:53:56.562 DEBUG 93058 --- [http-nio-8080-exec-1] dev.jlarsen.goldboard.GoldBoardService   : Attempting to read properties file..
+2021-05-02 17:53:56.564 DEBUG 93058 --- [http-nio-8080-exec-1] dev.jlarsen.goldboard.GoldBoardService   : Successfully read properties file..
+2021-05-02 17:53:56.570 DEBUG 93058 --- [http-nio-8080-exec-1] dev.jlarsen.goldboard.GoldBoardService   : Checking API status..
+2021-05-02 17:53:57.004 ERROR 93058 --- [http-nio-8080-exec-1] dev.jlarsen.goldboard.GoldBoardService   : I/O error on GET request for "https://www.goldapi.io/api/status": www.goldapi.io; nested exception is java.net.UnknownHostException: www.goldapi.io
+
+org.springframework.web.client.ResourceAccessException: I/O error on GET request for "https://www.goldapi.io/api/status": www.goldapi.io; nested exception is java.net.UnknownHostException: www.goldapi.io
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:785) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:711) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:602) ~[spring-web-5.3.5.jar:5.3.5]
+	at dev.jlarsen.goldboard.GoldBoardService.checkApiStatus(GoldBoardService.java:41) ~[classes/:na]
+	at dev.jlarsen.goldboard.WebController.displayBoard(WebController.java:20) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_251]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_251]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_251]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_251]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) [spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) [spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) [spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894) [spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) [spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) [spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060) [spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962) [spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) [spring-webmvc-5.3.5.jar:5.3.5]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) [tomcat-embed-core-9.0.44.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.5.jar:5.3.5]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) [tomcat-embed-core-9.0.44.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.5.jar:5.3.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.5.jar:5.3.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.5.jar:5.3.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_251]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_251]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_251]
+Caused by: java.net.UnknownHostException: www.goldapi.io
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184) ~[na:1.8.0_251]
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_251]
+	at java.net.Socket.connect(Socket.java:606) ~[na:1.8.0_251]
+	at sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:681) ~[na:1.8.0_251]
+	at sun.security.ssl.BaseSSLSocketImpl.connect(BaseSSLSocketImpl.java:173) ~[na:1.8.0_251]
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180) ~[na:1.8.0_251]
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:463) ~[na:1.8.0_251]
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:558) ~[na:1.8.0_251]
+	at sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:264) ~[na:1.8.0_251]
+	at sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:367) ~[na:1.8.0_251]
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:191) ~[na:1.8.0_251]
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1162) ~[na:1.8.0_251]
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1056) ~[na:1.8.0_251]
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:177) ~[na:1.8.0_251]
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:167) ~[na:1.8.0_251]
+	at org.springframework.http.client.SimpleBufferingClientHttpRequest.executeInternal(SimpleBufferingClientHttpRequest.java:76) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:776) ~[spring-web-5.3.5.jar:5.3.5]
+	... 54 common frames omitted
+
+2021-05-02 17:53:57.008 ERROR 93058 --- [http-nio-8080-exec-1] dev.jlarsen.goldboard.GoldBoardService   : API status check failed, maybe server is down?
+2021-05-02 17:53:57.009 DEBUG 93058 --- [http-nio-8080-exec-1] dev.jlarsen.goldboard.GoldBoardService   : Getting GOLD price from backup file.
+2021-05-02 17:53:57.010 DEBUG 93058 --- [http-nio-8080-exec-1] dev.jlarsen.goldboard.GoldBoardService   : Got GOLD price.
+2021-05-02 17:53:57.011 DEBUG 93058 --- [http-nio-8080-exec-1] dev.jlarsen.goldboard.GoldBoardService   : Adjusting GOLD price using pay rate: 0.80
+2021-05-02 17:53:57.011 DEBUG 93058 --- [http-nio-8080-exec-1] dev.jlarsen.goldboard.GoldBoardService   : Getting SILVER price from backup file.
+2021-05-02 17:53:57.012 DEBUG 93058 --- [http-nio-8080-exec-1] dev.jlarsen.goldboard.GoldBoardService   : Got SILVER price.
+2021-05-02 17:53:57.012 DEBUG 93058 --- [http-nio-8080-exec-1] dev.jlarsen.goldboard.GoldBoardService   : Adjusting SILVER price using pay rate: 0.70
+2021-05-02 17:53:57.012 DEBUG 93058 --- [http-nio-8080-exec-1] dev.jlarsen.goldboard.GoldBoardService   : Getting PLATINUM price from backup file.
+2021-05-02 17:53:57.012 DEBUG 93058 --- [http-nio-8080-exec-1] dev.jlarsen.goldboard.GoldBoardService   : Got PLATINUM price.
+2021-05-02 17:53:57.012 DEBUG 93058 --- [http-nio-8080-exec-1] dev.jlarsen.goldboard.GoldBoardService   : Adjusting PLATINUM price using pay rate: 0.70
+2021-05-02 17:54:54.458 DEBUG 93058 --- [http-nio-8080-exec-2] dev.jlarsen.goldboard.GoldBoardService   : Attempting to read properties file..
+2021-05-02 17:54:54.464 DEBUG 93058 --- [http-nio-8080-exec-2] dev.jlarsen.goldboard.GoldBoardService   : Successfully read properties file..
+2021-05-02 17:54:54.465 DEBUG 93058 --- [http-nio-8080-exec-2] dev.jlarsen.goldboard.GoldBoardService   : Checking API status..
+2021-05-02 17:54:54.470 ERROR 93058 --- [http-nio-8080-exec-2] dev.jlarsen.goldboard.GoldBoardService   : I/O error on GET request for "https://www.goldapi.io/api/status": www.goldapi.io; nested exception is java.net.UnknownHostException: www.goldapi.io
+
+org.springframework.web.client.ResourceAccessException: I/O error on GET request for "https://www.goldapi.io/api/status": www.goldapi.io; nested exception is java.net.UnknownHostException: www.goldapi.io
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:785) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:711) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:602) ~[spring-web-5.3.5.jar:5.3.5]
+	at dev.jlarsen.goldboard.GoldBoardService.checkApiStatus(GoldBoardService.java:41) ~[classes/:na]
+	at dev.jlarsen.goldboard.WebController.displayBoard(WebController.java:20) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_251]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_251]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_251]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_251]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) [spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) [spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) [spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894) [spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) [spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) [spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060) [spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962) [spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) [spring-webmvc-5.3.5.jar:5.3.5]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) [tomcat-embed-core-9.0.44.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.5.jar:5.3.5]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) [tomcat-embed-core-9.0.44.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.5.jar:5.3.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.5.jar:5.3.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.5.jar:5.3.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_251]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_251]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_251]
+Caused by: java.net.UnknownHostException: www.goldapi.io
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184) ~[na:1.8.0_251]
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_251]
+	at java.net.Socket.connect(Socket.java:606) ~[na:1.8.0_251]
+	at sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:681) ~[na:1.8.0_251]
+	at sun.security.ssl.BaseSSLSocketImpl.connect(BaseSSLSocketImpl.java:173) ~[na:1.8.0_251]
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180) ~[na:1.8.0_251]
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:463) ~[na:1.8.0_251]
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:558) ~[na:1.8.0_251]
+	at sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:264) ~[na:1.8.0_251]
+	at sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:367) ~[na:1.8.0_251]
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:191) ~[na:1.8.0_251]
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1162) ~[na:1.8.0_251]
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1056) ~[na:1.8.0_251]
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:177) ~[na:1.8.0_251]
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:167) ~[na:1.8.0_251]
+	at org.springframework.http.client.SimpleBufferingClientHttpRequest.executeInternal(SimpleBufferingClientHttpRequest.java:76) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:776) ~[spring-web-5.3.5.jar:5.3.5]
+	... 54 common frames omitted
+
+2021-05-02 17:54:54.472 ERROR 93058 --- [http-nio-8080-exec-2] dev.jlarsen.goldboard.GoldBoardService   : API status check failed, maybe server is down?
+2021-05-02 17:54:54.473 DEBUG 93058 --- [http-nio-8080-exec-2] dev.jlarsen.goldboard.GoldBoardService   : Getting GOLD price from backup file.
+2021-05-02 17:54:54.473 DEBUG 93058 --- [http-nio-8080-exec-2] dev.jlarsen.goldboard.GoldBoardService   : Got GOLD price.
+2021-05-02 17:54:54.473 DEBUG 93058 --- [http-nio-8080-exec-2] dev.jlarsen.goldboard.GoldBoardService   : Adjusting GOLD price using pay rate: 0.80
+2021-05-02 17:54:54.473 DEBUG 93058 --- [http-nio-8080-exec-2] dev.jlarsen.goldboard.GoldBoardService   : Getting SILVER price from backup file.
+2021-05-02 17:54:54.473 DEBUG 93058 --- [http-nio-8080-exec-2] dev.jlarsen.goldboard.GoldBoardService   : Got SILVER price.
+2021-05-02 17:54:54.473 DEBUG 93058 --- [http-nio-8080-exec-2] dev.jlarsen.goldboard.GoldBoardService   : Adjusting SILVER price using pay rate: 0.70
+2021-05-02 17:54:54.474 DEBUG 93058 --- [http-nio-8080-exec-2] dev.jlarsen.goldboard.GoldBoardService   : Getting PLATINUM price from backup file.
+2021-05-02 17:54:54.474 DEBUG 93058 --- [http-nio-8080-exec-2] dev.jlarsen.goldboard.GoldBoardService   : Got PLATINUM price.
+2021-05-02 17:54:54.474 DEBUG 93058 --- [http-nio-8080-exec-2] dev.jlarsen.goldboard.GoldBoardService   : Adjusting PLATINUM price using pay rate: 0.70
+2021-05-02 17:55:24.731 DEBUG 93058 --- [http-nio-8080-exec-4] dev.jlarsen.goldboard.GoldBoardService   : Attempting to read properties file..
+2021-05-02 17:55:24.737 DEBUG 93058 --- [http-nio-8080-exec-4] dev.jlarsen.goldboard.GoldBoardService   : Successfully read properties file..
+2021-05-02 17:55:24.738 DEBUG 93058 --- [http-nio-8080-exec-4] dev.jlarsen.goldboard.GoldBoardService   : Checking API status..
+2021-05-02 17:55:25.834 DEBUG 93058 --- [http-nio-8080-exec-4] dev.jlarsen.goldboard.GoldBoardService   : Got API status response:
+2021-05-02 17:55:25.835 DEBUG 93058 --- [http-nio-8080-exec-4] dev.jlarsen.goldboard.GoldBoardService   : ApiStatus(result=true)
+2021-05-02 17:55:25.836 DEBUG 93058 --- [http-nio-8080-exec-4] dev.jlarsen.goldboard.GoldBoardService   : Attempting to get price for: GOLD
+2021-05-02 17:55:26.277 DEBUG 93058 --- [http-nio-8080-exec-4] dev.jlarsen.goldboard.GoldBoardService   : Received price response for: GOLD
+2021-05-02 17:55:26.277 DEBUG 93058 --- [http-nio-8080-exec-4] dev.jlarsen.goldboard.GoldBoardService   : Writing GOLD price to backup file.
+2021-05-02 17:55:26.282 DEBUG 93058 --- [http-nio-8080-exec-4] dev.jlarsen.goldboard.GoldBoardService   : Adjusting GOLD price using pay rate: 0.80
+2021-05-02 17:55:26.283 DEBUG 93058 --- [http-nio-8080-exec-4] dev.jlarsen.goldboard.GoldBoardService   : Attempting to get price for: SILVER
+2021-05-02 17:55:26.763 DEBUG 93058 --- [http-nio-8080-exec-4] dev.jlarsen.goldboard.GoldBoardService   : Received price response for: SILVER
+2021-05-02 17:55:26.764 DEBUG 93058 --- [http-nio-8080-exec-4] dev.jlarsen.goldboard.GoldBoardService   : Writing SILVER price to backup file.
+2021-05-02 17:55:26.764 DEBUG 93058 --- [http-nio-8080-exec-4] dev.jlarsen.goldboard.GoldBoardService   : Adjusting SILVER price using pay rate: 0.70
+2021-05-02 17:55:26.765 DEBUG 93058 --- [http-nio-8080-exec-4] dev.jlarsen.goldboard.GoldBoardService   : Attempting to get price for: PLATINUM
+2021-05-02 17:55:27.195 DEBUG 93058 --- [http-nio-8080-exec-4] dev.jlarsen.goldboard.GoldBoardService   : Received price response for: PLATINUM
+2021-05-02 17:55:27.195 DEBUG 93058 --- [http-nio-8080-exec-4] dev.jlarsen.goldboard.GoldBoardService   : Writing PLATINUM price to backup file.
+2021-05-02 17:55:27.196 DEBUG 93058 --- [http-nio-8080-exec-4] dev.jlarsen.goldboard.GoldBoardService   : Adjusting PLATINUM price using pay rate: 0.70
