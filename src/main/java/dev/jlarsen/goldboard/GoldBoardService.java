@@ -29,7 +29,7 @@ public class GoldBoardService {
     @Value("${backup.file}")
     private String backupFile;
 
-    private final String workingDir = System.getProperty("user.dir");
+    private final String workingDir = new File(System.getProperty("user.dir")).getParentFile().getParentFile().getParent();
 
     private static final Logger logger = LoggerFactory.getLogger(GoldBoardService.class);
 
@@ -109,7 +109,6 @@ public class GoldBoardService {
             prices.load(new FileInputStream(workingDir + backupFile));
         } catch (FileNotFoundException ex) {
             logger.error("Backup file: " + backupFile + " doesn't exist, will create new file.");
-            logger.error(ex.getMessage(), ex);
         } catch (IOException ex) {
             logger.error("Error reading backup file: " + backupFile);
             logger.error(ex.getMessage(), ex);
