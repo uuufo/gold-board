@@ -1,0 +1,7 @@
+2021-05-10 09:48:55.043  INFO 68542 --- [main] d.j.goldboard.GoldBoardApplicationTests  : Starting GoldBoardApplicationTests using Java 1.8.0_251 on Jareds-Desk-tMBP.local with PID 68542 (started by jared in /Users/jared/Code/gold-board)
+2021-05-10 09:48:55.044 DEBUG 68542 --- [main] d.j.goldboard.GoldBoardApplicationTests  : Running with Spring Boot v2.4.4, Spring v5.3.5
+2021-05-10 09:48:55.045  INFO 68542 --- [main] d.j.goldboard.GoldBoardApplicationTests  : No active profile set, falling back to default profiles: default
+2021-05-10 09:48:56.214  INFO 68542 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-10 09:48:56.344  INFO 68542 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-05-10 09:48:56.607  INFO 68542 --- [main] d.j.goldboard.GoldBoardApplicationTests  : Started GoldBoardApplicationTests in 1.865 seconds (JVM running for 2.915)
+2021-05-10 09:48:56.898  INFO 68542 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
