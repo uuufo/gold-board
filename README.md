@@ -4,6 +4,10 @@ This application pulls current spot prices of various precious metals from a thi
 The price is processed using a pay rate set by the user, and broken down into various purities.
 The data is then placed a single html page for easy reference.
 
+<p align="center">
+<img width="250" alt="" src="https://user-images.githubusercontent.com/64601713/118853240-66853100-b888-11eb-90ce-34be94a4ef31.png">
+</p>
+
 ## Installation
 
 Set API key inside rate-config file, and build using Maven.
